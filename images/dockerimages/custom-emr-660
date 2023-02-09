@@ -1,0 +1,7 @@
+FROM 895885662937.dkr.ecr.us-west-2.amazonaws.com/spark/emr-6.6.0:latest
+USER root
+RUN pip3 install  boto3 pandas numpy pyspark mysql-connector-python  
+COPY .   /
+RUN chmod -R +r  /usr/lib/spark/jars
+
+USER hadoop:hadoop

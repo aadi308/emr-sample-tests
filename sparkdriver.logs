@@ -1,0 +1,62 @@
+++ id -u
++ myuid=999
+++ id -g
++ mygid=1000
++ set +e
+++ getent passwd 999
++ uidentry=hadoop:x:999:1000::/home/hadoop:/bin/bash
++ set -e
++ '[' -z hadoop:x:999:1000::/home/hadoop:/bin/bash ']'
++ '[' -n '' ']'
++ SPARK_K8S_CMD=driver
++ [[ driver == executor ]]
++ SPARK_CLASSPATH=':/usr/lib/spark/jars/*'
++ env
++ sed 's/[^=]*=\(.*\)/\1/g'
++ sort -t_ -k4 -n
++ grep SPARK_JAVA_OPT_
++ readarray -t SPARK_EXECUTOR_JAVA_OPTS
++ '[' -n '' ']'
++ '[' -z x ']'
++ export PYSPARK_PYTHON
++ '[' -z x ']'
++ export PYSPARK_DRIVER_PYTHON
++ '[' -n '' ']'
++ '[' -z x ']'
++ SPARK_CLASSPATH='/etc/hadoop/conf::/usr/lib/spark/jars/*'
++ '[' -z x ']'
++ SPARK_CLASSPATH='/usr/lib/spark/conf:/etc/hadoop/conf::/usr/lib/spark/jars/*'
++ case "$SPARK_K8S_CMD" in
++ shift 1
++ CMD=("$SPARK_HOME/bin/spark-submit" --conf "spark.driver.bindAddress=$SPARK_DRIVER_BIND_ADDRESS" --deploy-mode client "$@")
++ DISABLE_STDOUT_STDERR=0
++ '[' -z '' ']'
++ DISABLE_STDOUT_STDERR=1
++ DISABLE_PULLING_CONTAINER_FAILURE=0
++ '[' -z '(Error|Exception|Fail)' ']'
++ '[' -z /var/log/spark/error.log ']'
++ '[' -n '' ']'
++ '[' -n '' ']'
++ '[' -n '' ']'
+++ dirname ''
+++ dirname ''
++ mkdir -p . .
++ '[' -n /var/log/fluentd/main-container-terminated ']'
++ args=(-f "$SIDECAR_SIGNAL_FILE")
++ '[' -n '' ']'
++ (( 1 ))
++ (( DISABLE_PULLING_CONTAINER_FAILURE ))
++ exec /usr/bin/tini -s -- /usr/lib/spark/bin/spark-submit --conf spark.driver.bindAddress=10.60.4.172 --deploy-mode client --properties-file /usr/lib/spark/conf/spark.properties --class org.apache.spark.deploy.PythonRunner local:///home/hadoop/fpg_spark_hospitality/call_forecast_proc.py
+++ tee /dev/fd/63
+++ tee /dev/fd/62
++++ stdbuf -o0 grep -E '(Error|Exception|Fail)'
++++ stdbuf -o0 grep -E '(Error|Exception|Fail)'
++ /usr/bin/pub-terminate.sh -f /var/log/fluentd/main-container-terminated
+PID to watch not set; defaulting to parent with PID 1
+Error path to watch is not set
+Created file /var/log/fluentd/main-container-terminated to heartbeat to
+Waiting for PID 1 to terminate...
+22/09/28 05:59:21 WARN DependencyUtils: Local jar /home/hadoop/fpg_spark_hospitality/jars/mysql-connector-java8.0.29.jar does not exist, skipping.
+/usr/bin/python3: can't open file '/home/hadoop/fpg_spark_hospitality/call_forecast_proc.py': [Errno 2] No such file or directory
+22/09/28 05:59:22 INFO ShutdownHookManager: Shutdown hook called
+22/09/28 05:59:22 INFO ShutdownHookManager: Deleting directory /tmp/spark-0d98d2a5-1941-4afd-86f1-4ad9b894201a

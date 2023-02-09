@@ -1,0 +1,38 @@
+{
+    "name": "pi-4-with-log-groups",
+    "virtualClusterId": "rvbqatiz6og9jsmgqj5yqrw61",
+    "executionRoleArn": "arn:aws:iam::447722449887:role/EMRContainers-JobExecutionRole",
+    "releaseLabel": "emr-6.2.0-latest",
+    "jobDriver": {
+        "sparkSubmitJobDriver": {
+            "entryPoint": "s3://emr-eks-demo-447722449887-us-west-2/pi.py",
+            "sparkSubmitParameters": "--conf spark.executor.instances=2 --conf spark.executor.memory=2G --conf spark.executor.cores=2 --conf spark.driver.cores=1"
+        }
+    },
+    "configurationOverrides": {
+        "applicationConfiguration": [
+            {
+                "classification": "spark-defaults",
+                "properties": {
+                  "spark.dynamicAllocation.enabled": "true",
+                  "spark.kubernetes.executor.deleteOnTermination": "false",
+                  "spark.jars": "/home/hadoop/fpg_spark_hospitality/jars/mysql-connector-java8.0.29.jar
+                   /home/hadoop/fpg_spark_hospitality/jars/mysql-connector-java8.0.29.jar:
+                  /usr/share/aws/redshift/jdbc/RedshiftJDBC.jar:
+                  /usr/share/aws/redshift/spark-redshift/lib/spark-redshift.jar:
+                  /usr/share/aws/redshift/spark-redshift/lib/spark-avro.jar:
+                  /usr/share/aws/redshift/sparkredshift/lib/minimal-json.jar"
+                }
+            }
+        ],
+        "monitoringConfiguration": {
+            "cloudWatchMonitoringConfiguration": {
+                "logGroupName": "/emr-on-eks/eksworkshop-eksctl",
+                "logStreamNamePrefix": "pi"
+            },
+            "s3MonitoringConfiguration": {
+                "logUri": "s3://emr-eks-demo-447722449887-us-west-2/"
+            }
+        }
+    }
+}

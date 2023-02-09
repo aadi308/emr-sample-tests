@@ -1,0 +1,187 @@
+++ dirname /var/log/spark/user/000000030rogb9u886j-d8mz4/stdout
+++ dirname /var/log/spark/user/000000030rogb9u886j-d8mz4/stderr
++ mkdir -p /var/log/spark/user/000000030rogb9u886j-d8mz4 /var/log/spark/user/000000030rogb9u886j-d8mz4
++ mkdir -p /var/log/spark/pods
++ spark-submit --master k8s://kubernetes.default.svc --deploy-mode cluster --name spark-000000030rogb9u886j --conf spark.kubernetes.container.image.pullPolicy=Always --conf spark.kubernetes.report.interval=10000 --conf spark.kubernetes.client.informer.reSyncInterval=300000 --conf spark.kubernetes.driver.label.emr-containers.amazonaws.com/job.id=000000030rogb9u886j --conf spark.kubernetes.driver.label.emr-containers.amazonaws.com/resource.type=job.run --conf spark.kubernetes.client.informer.enabled=true --conf spark.kubernetes.client.informer.internalPodMetadataWritePath=/var/log/spark/pods/pod-metadata --conf spark.kubernetes.driver.label.emr-containers.amazonaws.com/component=driver --conf spark.executorEnv.AWS_REGION=us-west-2 --conf spark.app.id=000000030rogb9u886j --conf spark.kubernetes.namespace=spark --conf spark.kubernetes.driver.label.emr-containers.amazonaws.com/virtual-cluster-id=rvbqatiz6og9jsmgqj5yqrw61 --conf spark.kubernetes.authenticate.executor.serviceAccountName=emr-containers-sa-spark-executor-447722449887-189nnyj7mn9w2lqiewgg1u0l3jhmo0z69yjkj9u6qhosj8l --conf spark.kubernetes.container.image=107292555468.dkr.ecr.us-west-2.amazonaws.com/spark/emr-6.2.0:latest --conf spark.kubernetes.executor.label.emr-containers.amazonaws.com/resource.type=job.run --conf spark.kubernetes.executor.label.emr-containers.amazonaws.com/job.id=000000030rogb9u886j --conf spark.kubernetes.driver.pod.name=spark-000000030rogb9u886j-driver --conf spark.kubernetes.authenticate.driver.serviceAccountName=emr-containers-sa-spark-driver-447722449887-189nnyj7mn9w2lqiewgg1u0l3jhmo0z69yjkj9u6qhosj8l --conf spark.kubernetes.executor.label.emr-containers.amazonaws.com/component=executor --conf spark.kubernetes.executor.label.emr-containers.amazonaws.com/virtual-cluster-id=rvbqatiz6og9jsmgqj5yqrw61 --conf spark.kubernetes.driverEnv.AWS_REGION=us-west-2 --conf spark.executor.instances=2 --conf spark.executor.memory=2G --conf spark.executor.cores=2 --conf spark.driver.cores=1 s3://emr-eks-demo-447722449887-us-west-2/pi.py
+++ tee /var/log/spark/user/000000030rogb9u886j-d8mz4/stderr
+++ tee /var/log/spark/user/000000030rogb9u886j-d8mz4/stdout
+Picked up JAVA_TOOL_OPTIONS: -Xmx820m
+Picked up JAVA_TOOL_OPTIONS: -Xmx820m
+22/09/26 06:36:57 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+22/09/26 06:36:57 INFO SparkKubernetesClientFactory: Auto-configuring K8S client using current context from users K8S config file
+22/09/26 06:37:00 INFO KerberosConfDriverFeatureStep: You have not specified a krb5.conf file locally or via a ConfigMap. Make sure that you have the krb5.conf locally on the driver image.
+22/09/26 06:37:01 INFO LoggingPodStatusInformer: LoggingPodStatusInformer started
+22/09/26 06:37:01 INFO Controller: informer#Controller: ready to run resync and reflector runnable
+22/09/26 06:37:01 INFO Reflector: Started ReflectorRunnable watch for class io.fabric8.kubernetes.api.model.Pod
+22/09/26 06:37:02 INFO ReflectorWatcher: Event received ADDED
+22/09/26 06:37:02 INFO EmrInternalPodEventHandler: State changed, new state: 
+	 pod name: spark-000000030rogb9u886j-driver
+	 namespace: spark
+	 labels: emr-containers.amazonaws.com/component -> driver, emr-containers.amazonaws.com/job.id -> 000000030rogb9u886j, emr-containers.amazonaws.com/resource.type -> job.run, emr-containers.amazonaws.com/virtual-cluster-id -> rvbqatiz6og9jsmgqj5yqrw61, spark-app-selector -> spark-000000030rogb9u886j, spark-role -> driver
+	 pod uid: 00c3eb6b-954a-4933-9e39-cc7d7f558216
+	 creation time: 2022-09-26T06:37:02Z
+	 service account name: emr-containers-sa-spark-driver-447722449887-189nnyj7mn9w2lqiewgg1u0l3jhmo0z69yjkj9u6qhosj8l
+	 volumes: aws-iam-token, hadoop-properties, pod-template-volume, spark-local-dir-1, emr-container-communicate, config-volume, emr-container-s3, emr-container-application-log-dir, emr-container-event-log-dir, mnt-dir, home-dir, 000000030rogb9u886j-spark-defaults, spark-conf-volume, kube-api-access-qqxh9
+	 node name: N/A
+	 start time: N/A
+	 phase: Pending
+	 container status: N/A
+22/09/26 06:37:02 INFO ReflectorWatcher: Event received MODIFIED
+22/09/26 06:37:02 INFO ReflectorWatcher: Event received MODIFIED
+22/09/26 06:37:02 INFO EmrInternalPodEventHandler: State changed, new state: 
+	 pod name: spark-000000030rogb9u886j-driver
+	 namespace: spark
+	 labels: emr-containers.amazonaws.com/component -> driver, emr-containers.amazonaws.com/job.id -> 000000030rogb9u886j, emr-containers.amazonaws.com/resource.type -> job.run, emr-containers.amazonaws.com/virtual-cluster-id -> rvbqatiz6og9jsmgqj5yqrw61, spark-app-selector -> spark-000000030rogb9u886j, spark-role -> driver
+	 pod uid: 00c3eb6b-954a-4933-9e39-cc7d7f558216
+	 creation time: 2022-09-26T06:37:02Z
+	 service account name: emr-containers-sa-spark-driver-447722449887-189nnyj7mn9w2lqiewgg1u0l3jhmo0z69yjkj9u6qhosj8l
+	 volumes: aws-iam-token, hadoop-properties, pod-template-volume, spark-local-dir-1, emr-container-communicate, config-volume, emr-container-s3, emr-container-application-log-dir, emr-container-event-log-dir, mnt-dir, home-dir, 000000030rogb9u886j-spark-defaults, spark-conf-volume, kube-api-access-qqxh9
+	 node name: ip-10-0-5-104.us-west-2.compute.internal
+	 start time: N/A
+	 phase: Pending
+	 container status: N/A
+22/09/26 06:37:02 INFO EmrInternalPodEventHandler: State changed, new state: 
+	 pod name: spark-000000030rogb9u886j-driver
+	 namespace: spark
+	 labels: emr-containers.amazonaws.com/component -> driver, emr-containers.amazonaws.com/job.id -> 000000030rogb9u886j, emr-containers.amazonaws.com/resource.type -> job.run, emr-containers.amazonaws.com/virtual-cluster-id -> rvbqatiz6og9jsmgqj5yqrw61, spark-app-selector -> spark-000000030rogb9u886j, spark-role -> driver
+	 pod uid: 00c3eb6b-954a-4933-9e39-cc7d7f558216
+	 creation time: 2022-09-26T06:37:02Z
+	 service account name: emr-containers-sa-spark-driver-447722449887-189nnyj7mn9w2lqiewgg1u0l3jhmo0z69yjkj9u6qhosj8l
+	 volumes: aws-iam-token, hadoop-properties, pod-template-volume, spark-local-dir-1, emr-container-communicate, config-volume, emr-container-s3, emr-container-application-log-dir, emr-container-event-log-dir, mnt-dir, home-dir, 000000030rogb9u886j-spark-defaults, spark-conf-volume, kube-api-access-qqxh9
+	 node name: ip-10-0-5-104.us-west-2.compute.internal
+	 start time: 2022-09-26T06:37:02Z
+	 phase: Pending
+	 container status: 
+		 container name: emr-container-fluentd
+		 container image: 107292555468.dkr.ecr.us-west-2.amazonaws.com/fluentd/emr-6.2.0:latest
+		 container state: waiting
+		 pending reason: ContainerCreating
+
+
+		 container name: spark-kubernetes-driver
+		 container image: 107292555468.dkr.ecr.us-west-2.amazonaws.com/spark/emr-6.2.0:latest
+		 container state: waiting
+		 pending reason: ContainerCreating
+22/09/26 06:37:03 INFO LoggingPodStatusInformer: Watching pods for application spark-000000030rogb9u886j with submission ID spark:spark-000000030rogb9u886j-driver...
+22/09/26 06:37:03 INFO LoggingPodStatusInformer: Application status for spark-000000030rogb9u886j (phase: Pending)
+22/09/26 06:37:13 INFO LoggingPodStatusInformer: Application status for spark-000000030rogb9u886j (phase: Pending)
+22/09/26 06:37:23 INFO LoggingPodStatusInformer: Application status for spark-000000030rogb9u886j (phase: Pending)
+22/09/26 06:37:33 INFO LoggingPodStatusInformer: Application status for spark-000000030rogb9u886j (phase: Pending)
+22/09/26 06:37:43 INFO LoggingPodStatusInformer: Application status for spark-000000030rogb9u886j (phase: Pending)
+22/09/26 06:37:53 INFO LoggingPodStatusInformer: Application status for spark-000000030rogb9u886j (phase: Pending)
+22/09/26 06:38:01 INFO ReflectorWatcher: Event received MODIFIED
+22/09/26 06:38:01 INFO EmrInternalPodEventHandler: State changed, new state: 
+	 pod name: spark-000000030rogb9u886j-driver
+	 namespace: spark
+	 labels: emr-containers.amazonaws.com/component -> driver, emr-containers.amazonaws.com/job.id -> 000000030rogb9u886j, emr-containers.amazonaws.com/resource.type -> job.run, emr-containers.amazonaws.com/virtual-cluster-id -> rvbqatiz6og9jsmgqj5yqrw61, spark-app-selector -> spark-000000030rogb9u886j, spark-role -> driver
+	 pod uid: 00c3eb6b-954a-4933-9e39-cc7d7f558216
+	 creation time: 2022-09-26T06:37:02Z
+	 service account name: emr-containers-sa-spark-driver-447722449887-189nnyj7mn9w2lqiewgg1u0l3jhmo0z69yjkj9u6qhosj8l
+	 volumes: aws-iam-token, hadoop-properties, pod-template-volume, spark-local-dir-1, emr-container-communicate, config-volume, emr-container-s3, emr-container-application-log-dir, emr-container-event-log-dir, mnt-dir, home-dir, 000000030rogb9u886j-spark-defaults, spark-conf-volume, kube-api-access-qqxh9
+	 node name: ip-10-0-5-104.us-west-2.compute.internal
+	 start time: 2022-09-26T06:37:02Z
+	 phase: Running
+	 container status: 
+		 container name: emr-container-fluentd
+		 container image: 107292555468.dkr.ecr.us-west-2.amazonaws.com/fluentd/emr-6.2.0:latest
+		 container state: running
+		 container started at: 2022-09-26T06:37:17Z
+
+
+		 container name: spark-kubernetes-driver
+		 container image: 107292555468.dkr.ecr.us-west-2.amazonaws.com/spark/emr-6.2.0:latest
+		 container state: running
+		 container started at: 2022-09-26T06:38:01Z
+22/09/26 06:38:03 INFO LoggingPodStatusInformer: Application status for spark-000000030rogb9u886j (phase: Running)
+22/09/26 06:38:10 INFO ReflectorWatcher: Event received MODIFIED
+22/09/26 06:38:10 INFO EmrInternalPodEventHandler: State changed, new state: 
+	 pod name: spark-000000030rogb9u886j-driver
+	 namespace: spark
+	 labels: emr-containers.amazonaws.com/component -> driver, emr-containers.amazonaws.com/job.id -> 000000030rogb9u886j, emr-containers.amazonaws.com/resource.type -> job.run, emr-containers.amazonaws.com/virtual-cluster-id -> rvbqatiz6og9jsmgqj5yqrw61, spark-app-selector -> spark-000000030rogb9u886j, spark-role -> driver
+	 pod uid: 00c3eb6b-954a-4933-9e39-cc7d7f558216
+	 creation time: 2022-09-26T06:37:02Z
+	 service account name: emr-containers-sa-spark-driver-447722449887-189nnyj7mn9w2lqiewgg1u0l3jhmo0z69yjkj9u6qhosj8l
+	 volumes: aws-iam-token, hadoop-properties, pod-template-volume, spark-local-dir-1, emr-container-communicate, config-volume, emr-container-s3, emr-container-application-log-dir, emr-container-event-log-dir, mnt-dir, home-dir, 000000030rogb9u886j-spark-defaults, spark-conf-volume, kube-api-access-qqxh9
+	 node name: ip-10-0-5-104.us-west-2.compute.internal
+	 start time: 2022-09-26T06:37:02Z
+	 phase: Running
+	 container status: 
+		 container name: emr-container-fluentd
+		 container image: 107292555468.dkr.ecr.us-west-2.amazonaws.com/fluentd/emr-6.2.0:latest
+		 container state: running
+		 container started at: 2022-09-26T06:37:17Z
+
+
+		 container name: spark-kubernetes-driver
+		 container image: 107292555468.dkr.ecr.us-west-2.amazonaws.com/spark/emr-6.2.0:latest
+		 container state: terminated
+		 container started at: 2022-09-26T06:38:01Z
+		 container finished at: 2022-09-26T06:38:09Z
+		 exit code: 1
+		 termination reason: Error
+22/09/26 06:38:13 INFO LoggingPodStatusInformer: Application status for spark-000000030rogb9u886j (phase: Running)
+22/09/26 06:38:23 INFO LoggingPodStatusInformer: Application status for spark-000000030rogb9u886j (phase: Running)
+22/09/26 06:38:26 INFO ReflectorWatcher: Event received MODIFIED
+22/09/26 06:38:26 INFO EmrInternalPodEventHandler: State changed, new state: 
+	 pod name: spark-000000030rogb9u886j-driver
+	 namespace: spark
+	 labels: emr-containers.amazonaws.com/component -> driver, emr-containers.amazonaws.com/job.id -> 000000030rogb9u886j, emr-containers.amazonaws.com/resource.type -> job.run, emr-containers.amazonaws.com/virtual-cluster-id -> rvbqatiz6og9jsmgqj5yqrw61, spark-app-selector -> spark-000000030rogb9u886j, spark-role -> driver
+	 pod uid: 00c3eb6b-954a-4933-9e39-cc7d7f558216
+	 creation time: 2022-09-26T06:37:02Z
+	 service account name: emr-containers-sa-spark-driver-447722449887-189nnyj7mn9w2lqiewgg1u0l3jhmo0z69yjkj9u6qhosj8l
+	 volumes: aws-iam-token, hadoop-properties, pod-template-volume, spark-local-dir-1, emr-container-communicate, config-volume, emr-container-s3, emr-container-application-log-dir, emr-container-event-log-dir, mnt-dir, home-dir, 000000030rogb9u886j-spark-defaults, spark-conf-volume, kube-api-access-qqxh9
+	 node name: ip-10-0-5-104.us-west-2.compute.internal
+	 start time: 2022-09-26T06:37:02Z
+	 phase: Failed
+	 container status: 
+		 container name: emr-container-fluentd
+		 container image: 107292555468.dkr.ecr.us-west-2.amazonaws.com/fluentd/emr-6.2.0:latest
+		 container state: terminated
+		 container started at: 2022-09-26T06:37:17Z
+		 container finished at: 2022-09-26T06:38:25Z
+		 exit code: 0
+		 termination reason: Completed
+
+
+		 container name: spark-kubernetes-driver
+		 container image: 107292555468.dkr.ecr.us-west-2.amazonaws.com/spark/emr-6.2.0:latest
+		 container state: terminated
+		 container started at: 2022-09-26T06:38:01Z
+		 container finished at: 2022-09-26T06:38:09Z
+		 exit code: 1
+		 termination reason: Error
+22/09/26 06:38:33 INFO LoggingPodStatusInformer: Application status for spark-000000030rogb9u886j (phase: Failed)
+22/09/26 06:38:43 INFO LoggingPodStatusInformer: Application status for spark-000000030rogb9u886j (phase: Failed)
+22/09/26 06:38:53 INFO LoggingPodStatusInformer: Application status for spark-000000030rogb9u886j (phase: Failed)
+22/09/26 06:39:00 INFO ReflectorWatcher: Event received MODIFIED
+22/09/26 06:39:00 INFO EmrInternalPodEventHandler: State changed, new state: 
+	 pod name: spark-000000030rogb9u886j-driver
+	 namespace: spark
+	 labels: emr-containers.amazonaws.com/component -> driver, emr-containers.amazonaws.com/job.id -> 000000030rogb9u886j, emr-containers.amazonaws.com/resource.type -> job.run, emr-containers.amazonaws.com/virtual-cluster-id -> rvbqatiz6og9jsmgqj5yqrw61, spark-app-selector -> spark-000000030rogb9u886j, spark-role -> driver
+	 pod uid: 00c3eb6b-954a-4933-9e39-cc7d7f558216
+	 creation time: 2022-09-26T06:37:02Z
+	 service account name: emr-containers-sa-spark-driver-447722449887-189nnyj7mn9w2lqiewgg1u0l3jhmo0z69yjkj9u6qhosj8l
+	 volumes: aws-iam-token, hadoop-properties, pod-template-volume, spark-local-dir-1, emr-container-communicate, config-volume, emr-container-s3, emr-container-application-log-dir, emr-container-event-log-dir, mnt-dir, home-dir, 000000030rogb9u886j-spark-defaults, spark-conf-volume, kube-api-access-qqxh9
+	 node name: ip-10-0-5-104.us-west-2.compute.internal
+	 start time: 2022-09-26T06:37:02Z
+	 phase: Failed
+	 container status: 
+		 container name: emr-container-fluentd
+		 container image: 107292555468.dkr.ecr.us-west-2.amazonaws.com/fluentd/emr-6.2.0:latest
+		 container state: terminated
+		 container started at: 2022-09-26T06:37:17Z
+		 container finished at: 2022-09-26T06:38:25Z
+		 exit code: 0
+		 termination reason: Completed
+
+
+		 container name: spark-kubernetes-driver
+		 container image: 107292555468.dkr.ecr.us-west-2.amazonaws.com/spark/emr-6.2.0:latest
+		 container state: terminated
+		 container started at: 2022-09-26T06:38:01Z
+		 container finished at: 2022-09-26T06:38:09Z
+		 exit code: 1
+		 termination reason: Error
+22/09/26 06:39:00 INFO ReflectorWatcher: Event received DELETED
+22/09/26 06:39:03 INFO LoggingPodStatusInformer: Application status for spark-000000030rogb9u886j (phase: Unknown)
+22/09/26 06:39:13 INFO LoggingPodStatusInformer: Application status for spark-000000030rogb9u886j (phase: Unknown)

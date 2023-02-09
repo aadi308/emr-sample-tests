@@ -1,0 +1,11 @@
+FROM 895885662937.dkr.ecr.us-west-2.amazonaws.com/spark/emr-6.6.0:latest
+USER root
+RUN pip3 install --upgrade boto3 pandas numpy pyspark 
+COPY .   .
+ARG JAR_HOME=/usr/lib/spark/jars/
+ADD ./fpg_spark_hospitality/jars/mysql-connector-java-8.0.29.jar $JAR_HOME
+RUN chmod -R +r  /usr/lib/spark/jars
+RUN chmod -R +x /home/hadoop/*
+CMD ["/usr/lib/spark/bin/spark-submit --master yarn --deploy-mode client --executor-memory 1G --executor-cores 1 --driver-memory 20G --jars /home/hadoop/fpg_spark_hospitality/jars/mysql-connector-java8.0.29.jar --conf spark.sql.parquet.datetimeRebaseModeInWrite=CORRECTED --conf spark.dynamicAllocation.enabled=true --conf spark.dynamicAllocation.initialExecutors=2 --conf spark.dynamicAllocation.minExecutors=2 --conf spark.dynamicAllocation.maxExecutors=25 --conf spark.yarn.driver.CONFIG_FILE=dev_hotel_forecast.json --conf spark.yarn.driver.RUN_TYPE=complete /home/hadoop/fpg_spark_hospitality/call_forecast_proc.py"]
+
+USER hadoop:hadoop

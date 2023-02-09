@@ -1,0 +1,16 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: volume-debugger2
+spec:
+  volumes:
+    - name: volume-to-debug
+      persistentVolumeClaim:
+       claimName: ebs-static-pvc
+  containers:
+    - name: debugger
+      image: alpine
+      command: ['sleep', '9600']
+      volumeMounts:
+        - mountPath: "/var/spark"
+          name: volume-to-debug

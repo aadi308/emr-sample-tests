@@ -1,0 +1,101 @@
+{
+    "activity_db": {
+        "activity_db_table_list": []
+    },
+    "db_conn_config": {
+        "delay": "5",
+        "retries": "5"
+    },
+    "email_alert": {
+        "recipients_cc": [
+            "kkumar@frontlinepg.com"
+        ],
+        "recipients_to": [
+            "kkumar@frontlinepg.com",
+            "kranthikumar.d@accionlabs.com"
+        ],
+        "sender_email": "devspark@fpg.awsapps.com",
+        "sender_password": "Et}Z<#w6v3",
+        "slack_token": "xoxp-242982342485-463920422659-793723883760-1dee91ec17ac450354f4ca59ee3283e4",
+        "smtp_server_host": "smtp.mail.us-east-1.awsapps.com",
+        "smtp_server_port": 587,
+        "subject": "Spark Uat-Forecast job Failed with ID "
+    },
+    "emr_fs": {
+        "s3_bucket_name": "forcast-emr-bucket"
+    },
+    "events_db": {
+        "events_db_table_list": []
+    },
+    "hive_db": {
+        "database_name": "fpg_uat",
+        "df_to_hive": [
+            "fact_location_daily_forecast",
+            "fact_location_monthly_forecast"
+        ]
+    },
+    "mysql_db": {
+        "database_name": "in_gauge_2018_spark",
+        "db_to_connect": "mysql_db",
+        "delay": "5",
+        "df_to_mysql": [
+            "fact_location_daily_forecast",
+            "fact_location_monthly_forecast"
+        ],
+        "df_to_mysql_nrc": [
+            "revenue_master"
+        ],
+        "driver": "com.mysql.jdbc.Driver",
+        "goal_db_table_list": [
+            "approved_location_daily_forecast",
+            "approved_location_monthly_forecast"
+        ],
+        "goal_schema_name": "goal_spark",
+        "host": "hotel-non-prod-rds.cvvwqxxa3xvq.us-west-2.rds.amazonaws.com",
+        "incentive_db_table_list": [
+            "incentive_payout_earned_per_cycle"
+        ],
+        "incentive_schema_name": "incentive_2018_spark",
+        "jar_path": "/config/mysql-connector-java-5.1.47.jar",
+        "nrc_schema_name": "nrc_spark",
+        "password": "CDROMdvd1",
+        "port": "3306",
+        "recommendation_db_table_list": [
+        ],
+        "recommendation_schema_name": "recommendation",
+        "reporting_db_name": "report_2018_spark",
+        "reporting_db_table_list": [
+            "dim_calendar",
+            "dim_tenant_location",
+            "fact_location_daily_forecast",
+            "fact_location_monthly_forecast"
+        ],
+        "retries": "30",
+        "update_table_ids": [],
+        "url": "jdbc:mysql",
+        "user": "root",
+        "write_db": "in_gauge_2018_spark"
+    },
+    "spark_conf": {
+        "app_name": "Forecast DEV Hotel",
+        "configurtion": [
+            "spark.sql.shuffle.partitions=144"
+        ],
+        "db_jar": "mysql-connector-java-5.1.47.jar",
+        "deploy_mode": "client",
+        "driver_memory": "3G",
+        "executor_cores": "2",
+        "executor_memory": "3G",
+        "file_name": "call_store_proc.py",
+        "hive_meta_config": "hive.metastore.uris ",
+        "hive_meta_port": "9083",
+        "hive_meta_url": "thrift://10.200.29.200",
+        "master": "yarn",
+        "num_executors": "2",
+        "spark_partitions": "120"
+    },
+    "store_proc": {
+        "force_run": true,
+        "run_type": "complete"
+    }
+}

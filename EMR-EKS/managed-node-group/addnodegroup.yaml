@@ -1,0 +1,33 @@
+---
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: nonprod-test-eks-cluster
+  region: us-west-2 
+
+vpc:
+  id: "vpc-06f79495b25cf1107"
+  cidr: "10.0.0.0/16"
+  subnets:
+    Private:
+      us-west-2a:
+          id: "subnet-025e3fbf03a251ce5"
+      us-west-2b:
+          id: "subnet-04a3b1a3874a6a7cc"
+      us-west-2c:
+          id: "subnet-04106c252b49d38c1"
+    Public:
+      us-west-2a:
+          id: "subnet-09940646325d383a8"
+      us-west-2b:
+          id: "subnet-0126a4c3900f20e0a"
+      us-west-2c:
+          id: "subnet-0ab876c61d8a4e5e4"
+managedNodeGroups:
+- name: emrnodegroup
+  desiredCapacity: 3
+  instanceType: m5.large
+  ssh:
+    enableSsm: true
+

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+spec:
+  volumes:
+    - name: source-data-volume
+      emptyDir: {}
+    - name: metrics-files-volume
+      emptyDir: {}
+  # nodeSelector:
+  #   eks.amazonaws.com/capacityType: SPOT
+  containers:
+  - name: spark-kubernetes-executor # This will be interpreted as Spark executor container

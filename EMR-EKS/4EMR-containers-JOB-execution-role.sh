@@ -1,0 +1,1 @@
+aws iam put-role-policy --role-name EMRContainers-JobExecutionRole --policy-name EMR-Containers-Job-Execution --policy-document file:///home/aadi/Desktop/emr-infa/emr-sample-tests/EMR-EKS/EMRContainers-JobExecutionRole.json
